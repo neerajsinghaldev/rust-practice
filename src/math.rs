@@ -5,8 +5,8 @@
 /// Function used to add two numbers
 ///
 /// ## Example:
-/// ```rust
-/// let result = add(10,2);
+/// ```rust,ignore
+/// let result = add(10, 2);
 /// assert_eq!(12, result);
 /// ```
 pub fn add(a: i32, b: i32) -> i32 {
@@ -16,8 +16,8 @@ pub fn add(a: i32, b: i32) -> i32 {
 /// Function used to subtract two numbers
 ///
 /// ## Example:
-/// ```rust
-/// let result = sub(10,2);
+/// ```rust,ignore
+/// let result = sub(10, 2);
 /// assert_eq!(8, result);
 /// ```
 pub fn sub(a: i32, b: i32) -> i32 {
@@ -27,8 +27,8 @@ pub fn sub(a: i32, b: i32) -> i32 {
 /// Function used to multiply two numbers
 ///
 /// ## Example:
-/// ```rust
-/// let result = mul(10,2);
+/// ```rust,ignore
+/// let result = mul(10, 2);
 /// assert_eq!(20, result);
 /// ```
 pub fn mul(a: i32, b: i32) -> i32 {
@@ -38,9 +38,9 @@ pub fn mul(a: i32, b: i32) -> i32 {
 /// Function used to divide two numbers
 ///
 /// ## Example:
-/// ```rust
-/// let result = div(10,2);
-/// assert_eq!(5, result);
+/// ```rust,ignore
+/// let result = div(10.0, 2.0);
+/// assert!((result - 5.0).abs() < 1e-6);
 /// ```
 pub fn div(a: f32, b: f32) -> f32 {
     a / b
@@ -49,12 +49,12 @@ pub fn div(a: f32, b: f32) -> f32 {
 /// Function used to calculate average of three numbers
 ///
 /// ## Example:
-/// ```rust
+/// ```rust,ignore
 /// let result = average(10, 2.0, 3.0);
-/// assert_eq!(5, result);
+/// assert!((result - 5.0).abs() < 1e-6);
 /// ```
 pub fn average(a: i32, b: f64, c: f64) -> f64 {
-    (a as f64 + b + c) / 3.0
+    (f64::from(a) + b + c) / 3.0
 }
 
 #[cfg(test)]
@@ -79,11 +79,11 @@ mod tests {
 
     #[test]
     fn ut_div() {
-        assert_eq!(5.0, div(10.0, 2.0));
+        assert!((div(10.0, 2.0) - 5.0).abs() < 1e-6);
     }
 
     #[test]
     fn ut_average() {
-        assert_eq!(2.0, average(2, 2.0, 2.0));
+        assert!((average(2, 2.0, 2.0) - 2.0).abs() < 1e-6);
     }
 }

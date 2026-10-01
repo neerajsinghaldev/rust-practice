@@ -10,7 +10,6 @@ type TResult<T> = result::Result<T, TError>;
 #[allow(dead_code)]
 type TError = Box<dyn error::Error>;
 
-
 /// Read in the file as String
 #[allow(dead_code)]
 pub fn read_file(_p: &str) -> TResult<String> {
